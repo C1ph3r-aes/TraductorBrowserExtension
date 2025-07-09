@@ -1,0 +1,31 @@
+/* Default (light) theme variables */
+:root {
+    --main-bg: #ffffff;
+    --main-text: #000000;
+}
+
+/* Dark theme overrides */
+.dark-theme {
+    --main-bg: #222222;
+    --main-text: #ffffff;
+}
+
+body {
+    background: var(--main-bg);
+    color: var(--main-text);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 16px;
+}
+
+h1, h2 {
+    margin-top: 0;
+}
+
+select, button {
+    background: var(--main-bg);
+    color: var(--main-text);
+    border: 1px solid #ccc;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
