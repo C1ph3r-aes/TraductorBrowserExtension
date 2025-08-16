@@ -9,7 +9,18 @@
     </head>
     <body>
         <h1>Traductor</h1>
-        <button id="export-csv">Export CSV</button>
+        <form action="" method="post">
+            <input type="text" name="input-list-name" id="input-list-name">
+            <label for="input-list-name">List name</label><br>
+            <button id="export-csv">Export CSV</button>
+        </form>
+        <br>
+        <h2>Lists</h2>
+        <div id="div-lists">
+            <!-- List names will be showed here -->
+        </div>
+
+        <button id="delete-all">Delete All</button>
 
         <!-- could add a system where you can select the websites you want this extension to work, this system would modifiy the manifest.json file -->
     </body>

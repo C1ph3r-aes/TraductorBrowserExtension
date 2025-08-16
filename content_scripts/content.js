@@ -31,23 +31,37 @@ document.addEventListener('mouseup', function (e) {
         labelInputField.textContent = 'Definition:';
         labelInputField.for = 'definition-input';
 
+        const inputListName = document.createElement('input');
+        inputListName.type = 'text';
+        inputListName.id = 'list-name-input';
+        const labelListName = document.createElement('label');
+        labelListName.textContent = 'List Name:';
+        labelListName.for = 'list-name-input';
+
         const buttonAddWord = document.createElement('button');
         buttonAddWord.textContent = 'Add Word';
         buttonAddWord.style.marginLeft = '10px';
         buttonAddWord.onclick = function () {
             // Send message to background script to add the word with its definition
-            console.log('Adding word:', text, 'Definition:', inputField.value);
+            console.log('Adding word:', text, 'Definition:', inputField.value, 'List Name:', inputListName.value);
             if (inputField.value.trim() === '') {
                 alert('Please enter a definition for the word.');
                 return;
             }
+            if(inputListName.value.trim() === '') {
+                alert('Please enter a list name.');
+                return;
+            }
             // Send the word and definition to the background script
-            chrome.runtime.sendMessage({ action: 'addFullWord', word: text, definition: inputField.value });
+            chrome.runtime.sendMessage({ action: 'addFullWord', word: text, definition: inputField.value, listName: inputListName.value });
             popup.remove(); // Remove popup after adding word
         }
         popup.appendChild(document.createElement('br'));
         popup.appendChild(labelInputField);
         popup.appendChild(inputField);
+        popup.appendChild(document.createElement('br'));
+        popup.appendChild(labelListName);
+        popup.appendChild(inputListName);
         popup.appendChild(document.createElement('br'));
         popup.appendChild(buttonAddWord);
 
