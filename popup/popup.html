@@ -4,23 +4,19 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Traductor</title>
-        <script defer src="popup.js"></script>
+        <script defer src="src/popup.js"></script>
         <link rel="stylesheet" href="popup.css">
     </head>
     <body>
         <h1>Traductor</h1>
+        <!-- form to export the csv -->
         <form action="" method="post">
             <label for="input-list-name">List name</label><br>
             <input type="text" name="input-list-name" id="input-list-name">
             <button id="export-csv">Export CSV</button>
         </form>
         <br>
-        <h2>Lists</h2>
-        <div id="div-lists">
-            <!-- List names will be showed here -->
-        </div>
-
-        <button id="delete-all">Delete all lists</button>
+        <a href="lists.html">Lists</a>
 
         <!-- could add a system to select the websites you want this extension to work, this system would modifiy the manifest.json file -->
     </body>
