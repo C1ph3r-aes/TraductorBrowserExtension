@@ -9,8 +9,9 @@ document.getElementById('export-csv').onclick = function () {
             if(list.length === 0) {
                 alert(`No words found in the list "${listName}".`);
             } else {
+                const delimiter = localStorage.getItem('delimiter');
                 // Generate CSV
-                const csv = list.map(w => `${w.word || ''},${w.definition || ''}`).join('\n');
+                const csv = list.map(w => `${w.word || ''}${delimiter}${w.definition || ''}`).join('\n');
                 const blob = new Blob([csv], { type: 'text/csv' });
                 const url = URL.createObjectURL(blob);
                 const a = document.createElement('a');
@@ -18,6 +19,7 @@ document.getElementById('export-csv').onclick = function () {
                 a.download = `${listName}.csv`;
                 a.click();
                 URL.revokeObjectURL(url);
+
             }
         });
     }
